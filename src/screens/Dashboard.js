@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, Image, Dimensions, TouchableOpacity, TextInput, KeyboardAvoidingView, Platform} from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Image, Dimensions, TouchableOpacity, TextInput, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import { AntDesign} from '@expo/vector-icons'
 import fonts from '../styles/fonts';
 
@@ -15,28 +15,23 @@ export function Dashboard() {
       <KeyboardAvoidingView
         behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
       >
-        <View style={styles.wrapper}>
-          <Text style={styles.titulo}>DASHBOARD</Text>
-          <Text style={styles.emoji}>
-            {temNome ? '😀' : '😶'}
-          </Text>
-          <TextInput 
-            style={styles.input}
-            placeholder="Digite seu nome"
-            onChangeText={handleInputChange}
-          />
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            
+          <View style={styles.wrapper}>
+            <Text style={styles.titulo}>DASHBOARD</Text>
+            <Text style={styles.emoji}>
+              {temNome ? '😀' : '😶'}
+            </Text>
+            <TextInput 
+              style={styles.input}
+              placeholder="Digite seu nome"
+              onChangeText={handleInputChange}
+            />
 
-          
-        </View>
+            
+          </View>
+        </TouchableWithoutFeedback>
 
-        <View style={{flexDirection: 'row', padding: 20}}>
-          <View style={{backgroundColor: 'red', width: '50%', height: 250, margin: 8}}>
-            <Text>1</Text>
-          </View>
-          <View style={{backgroundColor: 'blue', width: '50%', margin: 8}}>
-          <Text>2</Text>
-          </View>
-        </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
   )}

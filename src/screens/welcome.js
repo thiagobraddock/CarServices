@@ -1,7 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image, Dimensions, TouchableOpacity} from 'react-native';
 import { AntDesign} from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/core';
 export function Welcome() {
+
+    const navigation= useNavigation()
+    
+    function handleStart(){
+      navigation.navigate('Dashboard', { name: 'Thiago' })
+    }
+
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.wrapper}>
@@ -23,7 +32,9 @@ export function Welcome() {
           resizeMode='contain'
           />
 
-          <TouchableOpacity style={styles.signBtn}>
+          <TouchableOpacity style={styles.signBtn}
+            onPress={ handleStart }
+          >
             <AntDesign 
               name="login"
               style={{fontSize: 40}}
