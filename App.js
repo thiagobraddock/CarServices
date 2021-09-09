@@ -1,26 +1,31 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import AppLoading from 'expo-app-loading';
 import { Dashboard } from './src/screens/Dashboard';
-import { Welcome } from './src/screens/welcome';
-import {Teko_700Bold, Teko_400Regular,useFonts} from '@expo-google-fonts/teko';
-import {Roboto_900Black, Roboto_300Light} from '@expo-google-fonts/roboto';
-import {PressStart2P_400Regular} from '@expo-google-fonts/press-start-2p';
+
+import {
+  useFonts,
+  Roboto_900Black, 
+  Roboto_300Light
+} from '@expo-google-fonts/roboto';
+
 
 export default function App() {
   
-  const [ fontes] = useFonts({
-    PressStart2P_400Regular,
+  const [ fontes ] = useFonts({
+    Roboto_300Light,
     Roboto_900Black
-  })
+  });
 
-  if(!fontes)
-  return(
-    <Text>Erro</Text>
-  )
-  
+  if(!fontes) 
+  { 
+    return (
+      <AppLoading />
+    );
+    
+      // verificar propriedades
+  }
   return (
-    <Welcome />
-    // <Dashboard />
+    <Dashboard />
   );
 }
 

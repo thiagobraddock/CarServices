@@ -1,5 +1,4 @@
 export default{
-  header: 'PressStart2P_400Regular',
-  destaque: 'Roboto_900Black'
-
+  text: '  Roboto_300Light,',
+  header: 'Roboto_900Black'
 }
